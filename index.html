@@ -1,0 +1,241 @@
+
+<!doctype html>
+<html lang="ja">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<!--
+		<script src="https://s3.amazonaws.com/remoats/scripts/github/remotes.ne.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script>
+		    new Remotes("preview")
+		    .on("swipe-left", function(e){
+					Reveal.navigateRight();
+		         })
+			.on("swipe-right", function(e){
+					Reveal.navigateLeft();
+		         })
+			.on("swipe-up", function(e){
+					Reveal.navigateDown();
+		         })
+			.on("swipe-down", function(e){
+					Reveal.navigateUp();
+		         })
+			.on("tap", function(e){
+		            /* and the screen explodes */
+		         })
+			.on("hold", function(e){
+		            /* hold on */
+		         })
+			.on("release", function(e){
+		            /* hands off */
+		         });
+		</script>
+		-->
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown
+				    data-separator="\n---\n$"
+				    data-vertical="\n--\n">
+				    <script type="text/template">
+
+## Xamarinの紹介
+　
+### by tsutsu
+
+---
+
+### Xamarinを触ってみた
+
+<br>
+
+Xamarinで初めてのAndroidアプリを作ってみました
+
+---
+
+### Xamarinとは
+
+<br>
+
+C#でiOs，Androidアプリが作れるやつです
+
+<br>
+
+![image](./image/image01.jpg)
+
+--
+
+### お高いんでしょう？
+
+<br>
+
+Microsoftが2016年2月にXamarinを買収しました
+
+Visual Studioに無料で同梱されます
+
+Visual Studio Community 2015 Update3をインストールすればすぐに使えます
+
+--
+
+### クロスプラットフォーム？
+
+<br>
+
+UI部分はOSごとに書きなおす必要があります
+
+Xamarin.Formsを使えば共通化できるっぽいけど
+
+制限が多そう
+
+<br>
+
+![image](./image/image02.jpg)
+
+---
+
+### サンプルアプリ
+
+<br>
+
+ボタンを押したらカウントアップ
+
+![image](./image/image03.png)
+
+--
+
+### 少しだけ改造しました
+
+<br>
+
+* さみしい見た目を華やかに
+* 楽しいサウンドで彩りを
+* 押した回数を永続化
+* 他の端末でもにゃんぱすーをシェア
+
+--
+
+### にゃんぱすーサーバ
+
+<br>
+
+[wss://the-des-alizes.herokuapp.com/ws](wss://the-des-alizes.herokuapp.com/ws)
+
+<br>
+
+DjangoとChannelsで手軽に用意しました
+
+Webソケットで接続すると現在のカウントを返信
+
+「にゃんぱすー」するとカウントアップしてみんなに通知
+
+--
+
+### おまけ情報
+
+<br>
+
+Webソケットのテストには`wscat`が便利でした
+
+<br>
+
+```
+$ npm install -g ws
+$ wscat -c wss://the-des-alizes.herokuapp.com/ws
+```
+
+--
+
+### にゃんぱすーボタン（Xamarin）
+
+<br>
+
+にゃんぱすー
+
+![image](./image/image04.png)
+
+---
+
+## Thank U for Reading
+　
+### by tsutsu
+
+				    </script>
+				</sectin>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
